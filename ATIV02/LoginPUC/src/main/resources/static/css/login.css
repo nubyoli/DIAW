@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-image: url('../images/puc.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.login-container {
+    display: flex;
+    flex-direction: row;      
+    align-items: stretch;
+    width: 800px;             
+    min-height: 480px;        
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.logo-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 40%;             
+    padding: 2.5rem 1.5rem;
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-img {
+    width: 180px;              
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+}
+
+.col-divider {
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    align-self: stretch;
+}
+
+.form-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 0 0 60%;           
+    padding: 3rem 2.5rem;      
+}
+
+.login-title {
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.login-subtitle {
+    color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.input-group label {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    outline: none;
+    transition: border-color 0.25s, background-color 0.25s;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.input-group input:focus {
+    border-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.22);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    background-color: #2A7FCF;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: background-color 0.25s, box-shadow 0.25s, transform 0.1s;
+}
+
+.btn-submit:hover {
+    background-color: #1a6ab5;
+    box-shadow: 0 4px 16px rgba(42, 127, 207, 0.45);
+}
+
+.btn-submit:active {
+    transform: scale(0.98);
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+    margin: 1.2rem 0 0.8rem;
+    width: 100%;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.divider::before { margin-right: 0.6rem; }
+.divider::after  { margin-left: 0.6rem; }
+
+.redirect-links {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.82rem;
+}
+
+.redirect-links a {
+    color: #7ec8f5;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.redirect-links a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.redirect-links .link-forgot {
+    color: #FF9A70;
+}
+
+.redirect-links .link-forgot:hover {
+    color: #ffcbb3;
+}
+
+.redirect-links .sep {
+    margin: 0 0.4rem;
+    color: rgba(255, 255, 255, 0.35);
+}

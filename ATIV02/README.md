@@ -35,6 +35,10 @@ Antes de rodar o projeto, certifique-se de ter instalado:
 - Git
 - IDE recomendada: IntelliJ IDEA, Eclipse ou VS Code com extensões Java
 
+## Aplicação
+![Login](../ATIV02/LoginPUC/src/main/resources/static/images/login.png)
+![Registro](../ATIV02/LoginPUC/src/main/resources/static/images/registro.png)
+
 ## Como rodar o projeto
 
 ### 1) Clone o repositório
@@ -66,8 +70,16 @@ A aplicação normalmente fica disponível em:
 http://localhost:8080
 ```
 
+```text
+http://localhost:8080/login
+```
+
+```text
+http://localhost:8080/register
+```
+
 ## Alunas
 
 - [Maria Fernanda](https://github.com/nubyoli)
-- [NNúbia Torres](https://github.com/mafemelo)
+- [Núbia Torres](https://github.com/mafemelo)
 

@@ -73,5 +73,5 @@ Endpoints definidos: `/climaBH` ou `/clima/{cidade}`
 ## Alunas
 
 - [Maria Fernanda](https://github.com/nubyoli)
-- [NNúbia Torres](https://github.com/mafemelo)
+- [Núbia Torres](https://github.com/mafemelo)
 
