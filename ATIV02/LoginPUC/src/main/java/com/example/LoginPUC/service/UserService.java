@@ -3,7 +3,7 @@ package com.example.LoginPUC.service;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.catalina.User;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
@@ -26,8 +26,28 @@ public class UserService {
     }
 
     public void createUser(String email, String senha, String nome){
-        // UserDetails user = User.builder().username(email).password(passwordEncoder.encode(senha)).roles("USER").build();
-        // userDetailsManager.createUser(user);
-        // userNames.put(email, nome);
+        //Criar o usuário - spring security
+        UserDetails user = User.builder().username(email).password(passwordEncoder.encode(senha)).roles("USER").build();
+        userDetailsManager.createUser(user);
+        userNames.put(email, nome);
+
+        //Salvar o usuário
+        userDetailsManager.createUser(user);
+
+        userNames.put(email, nome);
+    }
+
+    public boolean existis(String email){
+        return userDetailsManager.userExists(email);
+    }
+
+    public String getName(String email){
+        return userNames.get(email);
+    }
+
+    public void updatePassword(String email, String novaSenha){
+        UserDetails usuarioAtual = userDetailsManager.loadUserByUsername(email);
+        UserDetails usuarioAtualizado = User.builder().username(usuarioAtual.getUsername()).password(passwordEncoder.encode(novaSenha)).authorities(usuarioAtual.getAuthorities()).build();
+        userDetailsManager.updateUser(usuarioAtualizado);
     }
 }
