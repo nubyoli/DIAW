@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <!-- <link rel="stylesheet" href="/style.css"> -->
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <h1>Candidatos - Eleições 2026</h1>
+    </header>
+
+    <section class="filtros">
+        <form method="get" th:action="@{/}" class="filtros">
+            <input type="text" name="texto" placeholder="Pesquisar por nome..." th:value="${texto}">
+            <select name="partido">
+                    <option value="" th:selected="${partidoSelecionado == ''}">Todos</option>
+                    <option th:each="p : ${partidos}" th:value="${p}" th:text="${p}" th:selected="${partidoSelecionado == p}"></option>
+            </select>
+
+            <select name="cargo">
+                <option value="" th:selected="${cargoSelecionado == ''}">Todos</option>
+                <option th:each="c : ${cargos}" th:value="${c}" th:text="${c}" th:selected="${cargoSelecionado == c}"></option>
+            </select>
+
+            <button type="submit">Filtrar</button>
+            <a th:href="@{/}" class="limpar">Limpar</a>
+        </form>
+
+        <div class="grade-candidatos">
+            <div th:each="cand : ${candidatos}">
+                <div class="foto-candidato">
+                    <img th:src="@{'/images/candidatos/' + ${cand.nomeArquivoFoto}}"
+                         th:alt="${cand.nomeUrna}">
+                </div>
+
+                <p th:if="${cand.nomeUrna != null}" th:text="${cand.nomeUrna.toUpperCase()}">Nome</p>
+                <span>
+                    <p th:if="${cand.nrCandidato != null}" th:text="${cand.nrCandidato}">Número</p>
+                    <p th:if="${cand.siglaPartido != null}" th:text="${cand.siglaPartido}">Partido</p>
+                </span>
+                <p th:if="${cand.cargo != null}" th:text="${cand.cargo.toUpperCase()}">Cargo</p>
+                <p th:if="${cand.uf != null}" th:text="${cand.uf}">UF</p>
+                <p th:if="${cand.dtNascimento != null}" th:text="${cand.dtNascimento}">Nascimento</p>
+                <p th:if="${cand.ocupacao != null}" th:text="${cand.ocupacao}">Ocupação</p>
+                <p th:if="${cand.grauInstrucao != null}" th:text="${cand.grauInstrucao}">Grau Instrução</p>
+                <p th:if="${cand.nomeCandidato != null}" th:text="${cand.nomeCandidato}">Nome Urna</p>
+            </div>
+        </div>
+    </section>  
+</body>
+</html>
