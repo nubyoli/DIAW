@@ -1,184 +1,119 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
+.app-shell { max-width: 1600px; margin: auto; }
+.site-header { height: 96px; padding: 0 6%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e6e6e0; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 0; font-size: 29px; letter-spacing: -1.5px; font-weight: 800; text-decoration: none; }
+.brand > span:not(.pokeball) { color: #e6503b; }
+.brand small { font-size: 9px; line-height: 1.4; letter-spacing: 2px; max-width: 68px; margin-left: 17px; padding-left: 17px; border-left: 1px solid #d9dbd5; color: #777e83; }
+.pokeball { display: inline-block; width: 28px; height: 28px; border-radius: 50%; border: 2px solid #262c32; background: linear-gradient(#e6503b 0 45%, #262c32 45% 55%, #fff 55%); position: relative; margin-right: 10px; flex-shrink: 0; }
+.pokeball::after { content: ''; position: absolute; width: 10px; height: 10px; border: 2px solid #262c32; background: white; border-radius: 50%; left: 7px; top: 7px; }
+.site-header nav { display: flex; gap: 30px; align-self: stretch; }
+.nav-link { background: none; color: #81858a; font-size: 14px; font-weight: 600; position: relative; padding: 0 4px; }
+.nav-link.active { color: #272c33; }
+.nav-link.active::after { content: ''; position: absolute; height: 3px; background: #e6503b; left: 0; right: 0; bottom: -1px; border-radius: 3px; }
+.header-tag { border: 1px solid #e2e3dd; border-radius: 30px; padding: 9px 13px; font-size: 11px; letter-spacing: .5px; display: flex; align-items: center; gap: 8px; }
+.header-tag i { width: 6px; height: 6px; display: inline-block; border-radius: 50%; background: #83a078; }
+.main-content { padding: 32px 6% 60px; }
 
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-}
+.eyebrow { display: inline-flex; align-items: center; gap: 9px; font-size: 10px; letter-spacing: 2px; font-weight: 700; color: #767d83; }
 
-.hero {
-  position: relative;
 
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
 
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
 
-  .framework,
-  .vite {
-    position: absolute;
-  }
 
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
 
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
-}
 
-#center {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
 
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
-}
 
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
 
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
 
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
+.search-toolbar { display: flex; gap: 12px; border: 1px solid #e5e5de; background: white; padding: 12px; border-radius: 16px; }
+.search-field { display: flex; align-items: center; flex: 1; min-width: 0; gap: 12px; padding: 0 15px; }
+.search-field > span:first-child { font-size: 29px; color: #929791; }
+.search-field input { border: 0; background: transparent; width: 100%; min-width: 0; font-size: 13px; padding: 12px 0; }
+.search-field input::placeholder { color: #989c9f; }
+.search-field kbd { color: #a0a49e; border: 1px solid #e9e9e3; padding: 4px 7px; border-radius: 5px; font-size: 10px; }
+.select-field { border-left: 1px solid #eeeeea; min-width: 164px; display: flex; flex-direction: column; gap: 3px; padding: 4px 14px; }
+.select-field > span { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #9a9e98; }
+.select-field select { border: 0; background: white; font-size: 12px; min-height: 24px; max-width: 190px; cursor: pointer; }
+.results-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin: 35px 0 23px; }
+.results-toolbar h2 { margin: 0; font-size: 19px; font-weight: 700; letter-spacing: -.5px; display: flex; align-items: center; gap: 10px; }
+.count-chip { background: #eeefe9; font-size: 10px; color: #777f73; padding: 4px 8px; border-radius: 7px; letter-spacing: 0; }
+.results-toolbar p { font-size: 11px; color: #969b95; margin: 7px 0 0; }
+.view-controls { display: flex; align-items: center; gap: 16px; }
+.random-button { background: transparent; font-size: 22px; display: flex; align-items: center; gap: 7px; }
+.random-button span { font-size: 11px; }
 
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
 
-#docs {
-  border-right: 1px solid var(--border);
 
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
 
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
 
-  .logo {
-    height: 18px;
-  }
 
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
 
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
 
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
 
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
 
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
-  position: relative;
-  width: 100%;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
-
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
-  }
-}
+.pokemon-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.pokemon-card { background: white; border: 1px solid #e7e7e0; border-radius: 18px; overflow: hidden; padding: 0; text-align: left; transition: box-shadow .2s; }
+.pokemon-card:hover { box-shadow: 0 12px 30px #202a3110; }
+.card-number { display: flex; justify-content: space-between; padding: 20px 22px 0; font-size: 11px; color: #91988e; font-family: monospace; }
+.card-number span { color: #b3b9ae; }
+.card-art, .detail-art { position: relative; isolation: isolate; }
+.card-art::before, .detail-art::before { content: ''; position: absolute; z-index: -1; inset: 10% 8%; border-radius: 45%; background: radial-gradient(ellipse at 30% 60%, var(--primary), transparent 65%), radial-gradient(ellipse at 70% 35%, var(--secondary), transparent 65%); filter: blur(40px); opacity: .3; }
+.card-art img, .detail-art img, .trainer-team img { image-rendering: pixelated; }
+.card-art img { width: 100%; height: 210px; object-fit: contain; padding: 10px 20px; }
+.card-content { padding: 8px 22px 22px; }
+.card-content h3 { font-size: 22px; font-weight: 700; letter-spacing: -.6px; margin: 0 0 12px; }
+.type-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+.type-badge { display: inline-flex; gap: 6px; align-items: center; padding: 4px 9px; border: 1px solid color-mix(in srgb, var(--type-color) 30%, white); background: color-mix(in srgb, var(--type-color) 11%, white); color: #454a48; border-radius: 6px; font-size: 10px; font-weight: 600; }
+.type-badge i { width: 5px; height: 5px; background: var(--type-color); border-radius: 50%; }
+.stats { margin: 20px 0 0; }
+.stat { display: grid; grid-template-columns: 110px 28px 1fr; align-items: center; gap: 10px; margin: 13px 0; font-size: 12px; }
+.stat dt { color: #858d84; }
+.stat dd { margin: 0; font-weight: 700; text-align: right; }
+.stat-track { background: #eeefe9; height: 6px; border-radius: 10px; overflow: hidden; }
+.stat-track span { display: block; height: 100%; background: var(--primary); border-radius: inherit; }
+.stats-compact { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px; border-top: 1px solid #f0f0eb; padding-top: 15px; margin-top: 18px; }
+.stats-compact .stat { grid-template-columns: 1fr auto; margin: 0; font-size: 10px; gap: 8px; }
+.pagination { display: flex; align-items: center; justify-content: space-between; padding: 26px 0; gap: 16px; font-size: 11px; color: #92988d; }
+.pagination > div { display: flex; gap: 16px; align-items: center; }
+.pagination button { border: 1px solid #e3e5db; background: white; border-radius: 8px; padding: 9px 13px; font-size: 11px; }
+.empty-state { padding: 65px 20px; border: 1px dashed #dedfd7; border-radius: 20px; text-align: center; }
+.empty-state > span { font-size: 48px; color: #e6503b; }
+.empty-state h3 { font-size: 23px; font-weight: 700; }
+.empty-state p { color: #858b80; margin: 12px 0 24px; font-size: 13px; }
+.primary-button { background: #e6503b; color: white; padding: 12px 20px; border-radius: 8px; font-size: 12px; }
+.pokemon-dialog { border: 1px solid #eceee5; border-radius: 24px; padding: 0; width: min(850px, 93vw); max-height: 90vh; overflow-y: auto; margin: auto; color: #222832; background: white; box-shadow: 0 30px 100px #151b3033; }
+.pokemon-dialog::backdrop { background: #18202c85; backdrop-filter: blur(8px); }
+.detail-layout { display: grid; grid-template-columns: 43% 57%; position: relative; }
+.close-button { position: absolute; top: 14px; right: 14px; z-index: 3; height: 34px; width: 34px; display: grid; place-items: center; font-size: 25px; border-radius: 50%; background: #eeefe9; }
+.detail-art { display: flex; flex-direction: column; justify-content: center; padding: 30px; min-height: 460px; }
+.detail-art img { width: 100%; height: 300px; object-fit: contain; padding: 15px; }
+.detail-art .eyebrow { position: absolute; top: 30px; left: 30px; }
+.art-caption { font-size: 8px; letter-spacing: 3px; text-align: center; color: #8d9586; }
+.detail-content { padding: 46px 34px 30px; border-left: 1px solid #f0f1eb; }
+.detail-content h2 { margin: 9px 0 14px; font-size: clamp(25px, 4vw, 38px); font-weight: 750; letter-spacing: -1.5px; }
+.detail-content h3 { font-weight: 700; font-size: 12px; margin: 28px 0 0; display: flex; justify-content: space-between; gap: 6px; }
+.detail-content h3 span { font-weight: 400; color: #8a9382; font-size: 10px; }
+.detail-trainers { border-top: 1px solid #efefe9; margin-top: 25px; }
+.detail-trainers p { font-size: 12px; line-height: 1.8; color: #88907f; margin-top: 10px; }
+.trainer-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.trainer-card { background: white; border: 1px solid #e7e7e0; border-radius: 18px; padding: 24px; }
+.trainer-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.trainer-avatar { display: grid; place-items: center; width: 45px; height: 45px; border-radius: 14px; background: #fce8df; color: #d96745; font-size: 22px; font-weight: 700; }
+.trainer-heading h3 { font-size: 18px; font-weight: 700; margin: 0; }
+.trainer-heading p { color: #969c90; font-size: 11px; margin-top: 4px; }
+.badge-icon { margin-left: auto; color: #d2ae5e; font-size: 25px; }
+.trainer-team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+.trainer-team button { display: flex; flex-direction: column; align-items: center; background: #f8f9f5; border-radius: 10px; padding: 6px 2px; }
+.trainer-team button:hover { background: #fce8df; }
+.trainer-team img { width: 64px; height: 64px; object-fit: contain; }
+.trainer-team span { font-size: 9px; padding: 3px; overflow-wrap: anywhere; }
+.site-footer { border-top: 1px solid #e4e5dd; margin: 0 6%; padding: 28px 0; display: flex; justify-content: space-between; gap: 20px; align-items: center; font-size: 10px; color: #92988d; }
+.footer-brand { display: flex; align-items: center; }
+.footer-brand .pokeball { transform: scale(.65); margin-right: 3px; }
+.site-footer > span:last-child { display: flex; align-items: center; gap: 10px; }
+.site-footer i { width: 3px; height: 3px; border-radius: 50%; background: #a1a797; }
+@media(min-width: 1400px) { .pokemon-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media(max-width: 1000px) { .site-header { padding: 0 4%; } .main-content { padding-left: 4%; padding-right: 4%; } .trainer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }  .pokemon-grid { gap: 12px; } .card-content { padding: 8px 15px 18px; } .stats-compact { gap: 8px 10px; } .search-field kbd { display: none; } .select-field { min-width: 140px; padding: 4px 8px; } }
+@media(max-width: 700px) { .site-header { height: 76px; gap: 12px; } .brand { font-size: 24px; } .brand small, .header-tag { display: none; } .site-header nav { gap: 18px; } .nav-link { font-size: 12px; } .main-content { padding-bottom: 25px; }           .eyebrow { font-size: 8px; letter-spacing: 1.4px; } .search-toolbar { flex-wrap: wrap; padding: 8px; gap: 8px; } .search-field { flex-basis: 100%; padding: 0 8px; } .select-field { flex: 1; border-left: 0; min-width: 0; padding: 8px; background: #f8f9f6; border-radius: 7px; } .select-field select { max-width: 100%; background: transparent; } .results-toolbar { margin: 25px 0 18px; flex-wrap: wrap; } .results-toolbar h2 { font-size: 18px; } .view-controls { gap: 10px; } .random-button span { display: none; }      .pokemon-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .card-art img { height: 160px; padding: 10px; } .card-content h3 { font-size: 19px; } .card-content { padding: 8px 12px 16px; } .card-number { padding: 14px 14px 0; } .stats-compact { grid-template-columns: 1fr; } .pagination { flex-wrap: wrap; justify-content: center; font-size: 10px; } .pagination > div { gap: 10px; } .detail-layout { grid-template-columns: 1fr; } .detail-art { min-height: 245px; padding: 25px; } .detail-art img { height: 220px; } .detail-content { padding: 22px 24px; border-top: 1px solid #eff0e9; border-left: none; } .detail-content h3 { margin-top: 22px; } .trainer-grid { grid-template-columns: 1fr; } .trainer-team { grid-template-columns: repeat(3, 1fr); } .site-footer { flex-direction: column; gap: 10px; text-align: center; } }
+@media(prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; } }
+  
