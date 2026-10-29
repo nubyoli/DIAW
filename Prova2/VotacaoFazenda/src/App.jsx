@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Routes } from 'react-router-dom'
 
 
 function App() {
@@ -6,7 +7,16 @@ function App() {
 
   return (
     <>
-      <section id="center">
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />{
+            <Route path="/votacao" element={<Votacao />} />
+            //<Route path="/resultado" element={<Resultado />} />
+          }
+        </Routes>
+      </BrowserRouter>
+      {/* <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
           <img src={reactLogo} className="framework" alt="React logo" />
@@ -111,7 +121,7 @@ function App() {
       </section>
 
       <div className="ticks"></div>
-      <section id="spacer"></section>
+      <section id="spacer"></section> */}
     </>
   )
 }
